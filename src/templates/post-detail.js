@@ -29,15 +29,26 @@ const PostDetail = ({ pageContext, data }) => {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => <Heading1>{children}</Heading1>,
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+      ["hyperlink"]: (node, children) => {
+        return (
+          <a
+            className="text-deep-purple-accent-700 hover:underline"
+            href={node.data.uri}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            {children.length > 0 && children[0] ? children[0] : node.data.uri}
+          </a>
+        );
+      },
       ["entry-hyperlink"]: (nodez) => {
         const entry = posts.edges.find(
           ({ node }) => node.contentful_id === nodez.data.target.sys.id
         );
-        console.log({ nodez, entry });
         if (entry) {
           return (
             <Link
-              className="text-deep-purple-accent-700"
+              className="text-deep-purple-accent-700 hover:underline"
               to={`/${entry.node.slug}`}
             >
               {nodez.content[0].value}
