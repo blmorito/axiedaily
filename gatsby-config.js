@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env`,
+});
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -7,15 +10,22 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "",
-        spaceId: "",
+        spaceId: process.env.CFL_SPACE_ID,
+        accessToken: process.env.CFL_ACCESS_TOKEN,
       },
     },
     "gatsby-plugin-image",
+    "gatsby-plugin-postcss",
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: "",
+    //   },
+    // },
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-plugin-load-script",
       options: {
-        trackingId: "",
+        src: "https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js",
       },
     },
     "gatsby-plugin-react-helmet",
