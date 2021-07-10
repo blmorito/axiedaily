@@ -1,12 +1,12 @@
 import React from "react";
 import Footer from "./Footer";
 import Nav from "./Nav";
-import SEO from "./SEO/SEO";
 import PropTypes from "prop-types";
+import SearchOptimization from "./SearchOptimization/SearchOptimization";
 const Layout = ({ children, customSEO }) => {
   return (
     <div>
-      {!customSEO && <SEO />}
+      {!customSEO && <SearchOptimization />}
       <coingecko-coin-price-marquee-widget
         coin-ids="ethereum,smooth-love-potion,axie-infinity"
         currency="usd"

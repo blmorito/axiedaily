@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
-import Facebook from "./Facebook";
-import Twitter from "./Twitter";
 import adLogo from "../../images/axiedailylogo.png";
 import favicon from "../../images/favicon.ico";
-const SEO = ({ title, description, image, article }) => {
+import Facebook from "../SEO/Facebook";
+import Twitter from "../SEO/Twitter";
+const SearchOptimization = ({ title, description, image, article }) => {
   const { pathname } = useLocation();
   // I put it here since there was a fucking error with useStaticQuery and there's no fucking working solution
   const siteMetadata = {
@@ -72,15 +72,15 @@ const SEO = ({ title, description, image, article }) => {
   );
 };
 
-export default SEO;
+export default SearchOptimization;
 
-SEO.propTypes = {
+SearchOptimization.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   article: PropTypes.bool,
 };
-SEO.defaultProps = {
+SearchOptimization.defaultProps = {
   title: null,
   description: null,
   image: null,

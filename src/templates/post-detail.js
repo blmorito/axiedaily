@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO/SEO";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { Bold, Heading1, Text } from "../components/Slices/Markdown";
+import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
 const PostDetail = ({ pageContext, data }) => {
   const { title } = pageContext;
   const postTitle = `${title} | AxieDaily`;
@@ -68,7 +68,7 @@ const PostDetail = ({ pageContext, data }) => {
   };
   return (
     <Layout>
-      <SEO
+      <SearchOptimization
         title={postTitle}
         description={description}
         image={mainImg}

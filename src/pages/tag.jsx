@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO/SEO";
 import { graphql, Link } from "gatsby";
+import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
 const TagsLanding = ({ data }) => {
   console.log("brylle", data);
 
@@ -20,7 +20,7 @@ const TagsLanding = ({ data }) => {
   });
   return (
     <Layout>
-      <SEO title="All Tags | AxieDaily" />
+      <SearchOptimization title="All Tags | AxieDaily" />
       <div className="px-4 py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-36">
         <div className="flex flex-wrap justify-between items-center border-b-2 border-gray-500 border-solid pb-4 mb-8 w-full">
           <h1 className="font-sans text-xl font-extrabold lg:text-3xl xl:text-4xl">
