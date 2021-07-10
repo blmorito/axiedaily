@@ -1,14 +1,13 @@
-import { Link } from "gatsby"
-import React from "react"
-
+import { Link } from "gatsby";
+import React from "react";
+import Img from "gatsby-image";
 const PostCardNoTag = ({ title, date, description, imgSrc, slug }) => {
   return (
     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded">
       <Link to={`/${slug}`} aria-label="Article">
-        <img
-          src={imgSrc}
+        <Img
+          fluid={imgSrc.fluid}
           className="object-cover w-full h-64 rounded"
-          alt={title}
         />
       </Link>
       <div className="py-5">
@@ -25,7 +24,7 @@ const PostCardNoTag = ({ title, date, description, imgSrc, slug }) => {
         <p className="mb-4 text-gray-700">{description}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PostCardNoTag
+export default PostCardNoTag;

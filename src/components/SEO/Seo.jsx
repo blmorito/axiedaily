@@ -5,6 +5,7 @@ import { useLocation } from "@reach/router";
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
 import adLogo from "../../images/axiedailylogo.png";
+import favicon from "../../images/favicon.ico";
 const SEO = ({ title, description, image, article }) => {
   const { pathname } = useLocation();
   // I put it here since there was a fucking error with useStaticQuery and there's no fucking working solution
@@ -33,6 +34,7 @@ const SEO = ({ title, description, image, article }) => {
   };
   return (
     <Helmet title={seo.title}>
+      <link rel="icon" href={favicon} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}

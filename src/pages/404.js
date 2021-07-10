@@ -1,54 +1,40 @@
-import * as React from "react"
-import { Link } from "gatsby"
-
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
-const NotFoundPage = () => {
+import React from "react";
+import { Link } from "gatsby";
+const Error404 = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <React.Fragment>
+      <div className="flex items-center justify-center min-h-screen bg-deep-purple-accent-700  bg-fixed bg-cover bg-bottom error-bg">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-8 offset-sm-2 text-gray-50 text-center -mt-52">
+              <div className="relative ">
+                <h1 className="relative text-9xl tracking-tighter-less text-shadow font-sans font-bold">
+                  <span>4</span>
+                  <span>0</span>
+                  <span>4</span>
+                </h1>
+                <span className="absolute  top-0   -ml-12  text-gray-300 font-semibold">
+                  Oops!
+                </span>
+              </div>
+              <h5 className="text-gray-300 font-semibold -mr-10 -mt-3">
+                Page not found
+              </h5>
+              <p className="text-gray-100 mt-2 mb-6">
+                we are sorry, but the page you requested was not found
+              </p>
+              <Link
+                to="/"
+                className="bg-teal-accent-400 px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-teal-900 rounded-full hover:shadow-lg"
+              >
+                Go back to Home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
 
-export default NotFoundPage
+export default Error404;

@@ -3,14 +3,9 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import SEO from "./SEO/SEO";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import favicon from "../images/favicon.ico";
 const Layout = ({ children, customSEO }) => {
   return (
     <div>
-      <Helmet>
-        <link rel="icon" href={favicon} />
-      </Helmet>
       {!customSEO && <SEO />}
       <coingecko-coin-price-marquee-widget
         coin-ids="ethereum,smooth-love-potion,axie-infinity"
