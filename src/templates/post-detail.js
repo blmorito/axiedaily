@@ -13,7 +13,7 @@ const PostDetail = ({ pageContext, data }) => {
 
   const { contentfulArticles, assets, posts } = data;
   const description = contentfulArticles.description;
-  const mainImg = contentfulArticles.image.file.url;
+  const mainImg = contentfulArticles.image;
   const articleDate = contentfulArticles.createdAt;
   const tag =
     contentfulArticles.tags && contentfulArticles.tags.length > 0
@@ -73,7 +73,7 @@ const PostDetail = ({ pageContext, data }) => {
       <SearchOptimization
         title={postTitle}
         description={description}
-        image={mainImg}
+        image={mainImg.file.url}
         article
       />
       <article>
@@ -97,7 +97,7 @@ const PostDetail = ({ pageContext, data }) => {
             <div className="mb-4 transition-shadow duration-300 lg:mb-6">
               <Img
                 className="object-cover w-full h-56 rounded sm:h-64 md:h-80 lg:h-96"
-                fluid={mainImg}
+                fluid={mainImg.fluid}
                 alt=""
               />
             </div>
