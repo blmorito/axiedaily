@@ -19,6 +19,7 @@
     "@contentful/rich-text-types": "^15.0.0",
     "gatsby": "^3.9.0",
     "gatsby-image": "^3.9.0",
+    "gatsby-plugin-disqus": "^1.2.2",
     "gatsby-plugin-google-analytics": "^3.9.0",
     "gatsby-plugin-google-gtag": "^3.9.0",
     "gatsby-plugin-image": "^1.9.0",

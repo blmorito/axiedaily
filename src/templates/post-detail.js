@@ -6,6 +6,7 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { Bold, Heading1, Text } from "../components/Slices/Markdown";
 import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
+import { Disqus } from "gatsby-plugin-disqus";
 const PostDetail = ({ pageContext, data }) => {
   const { title } = pageContext;
   const postTitle = `${title} | AxieDaily`;
@@ -19,6 +20,7 @@ const PostDetail = ({ pageContext, data }) => {
       ? contentfulArticles.tags[0]
       : null;
   const content = contentfulArticles.content;
+  const slug = contentfulArticles.slug;
   /**
    * Blog body content
    */
@@ -105,6 +107,15 @@ const PostDetail = ({ pageContext, data }) => {
           </div>
         </div>
       </article>
+      <div className="mx-auto lg:max-w-3xl mt-8">
+        <Disqus
+          config={{
+            url: `https://www.axiedaily.com/${slug}`,
+            identifier: slug,
+            title: title,
+          }}
+        />
+      </div>
     </Layout>
   );
 };
@@ -114,6 +125,7 @@ export default PostDetail;
 export const pageQuery = graphql`
   query PostQuery($slug: String) {
     contentfulArticles(slug: { eq: $slug }) {
+      id
       slug
       title
       tags

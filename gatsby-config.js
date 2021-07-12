@@ -14,6 +14,12 @@ module.exports = {
         accessToken: process.env.CFL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `axiedaily`,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-postcss",
     {
