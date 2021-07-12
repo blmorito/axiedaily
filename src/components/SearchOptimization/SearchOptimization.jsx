@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
-import adLogo from "../../images/axiedailylogo.png";
+import adLogoCover from "../../images/cover.png";
 import favicon from "../../images/favicon.ico";
 import Facebook from "../SEO/Facebook";
 import Twitter from "../SEO/Twitter";
@@ -13,7 +13,7 @@ const SearchOptimization = ({ title, description, image, article }) => {
     defaultTitle: `AxieDaily | Daily Dose of Axie Infinity`,
     defaultDescription: `A site that contains everything under the sun for Axie Infinity (Guides, News, Tidbits)`,
     author: `Wozniakwtf`,
-    defaultImage: { adLogo },
+    defaultImage: adLogoCover,
     twitterUsername: "@axiedailygg",
     facebook: "axiedailygg",
     url: "https://axiedaily.com",
