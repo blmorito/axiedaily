@@ -13,7 +13,7 @@ const PostDetail = ({ pageContext, data }) => {
 
   const { contentfulArticles, assets, posts } = data;
   const description = contentfulArticles.description;
-  const mainImg = contentfulArticles.image.fluid;
+  const mainImg = contentfulArticles.image.file.url;
   const articleDate = contentfulArticles.createdAt;
   const tag =
     contentfulArticles.tags && contentfulArticles.tags.length > 0
