@@ -7,6 +7,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { Bold, Heading1, Text } from "../components/Slices/Markdown";
 import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
 import { Disqus } from "gatsby-plugin-disqus";
+import _ from "underscore";
 const PostDetail = ({ pageContext, data }) => {
   const { title } = pageContext;
   const postTitle = `${title} | AxieDaily`;
@@ -21,6 +22,42 @@ const PostDetail = ({ pageContext, data }) => {
       : null;
   const content = contentfulArticles.content;
   const slug = contentfulArticles.slug;
+
+  /**
+   * Related content logic
+   */
+  const allPostsExceptCurrentPost = posts.edges
+    .filter((post) => post.node.slug !== slug)
+    .map((post) => post.node);
+  console.log({ allPostsExceptCurrentPost });
+  const currentPostTags = contentfulArticles.tags
+    ? contentfulArticles.tags
+    : [];
+  let relatedPosts = [];
+  currentPostTags.forEach((tag) => {
+    const rel = allPostsExceptCurrentPost.filter(
+      (post) => post.tags.indexOf(tag) > -1
+    );
+    console.log({ tag, rel });
+    if (rel) {
+      rel.forEach((relatedPost) => {
+        const relatedPostExisting = relatedPosts.find(
+          (x) => x.slug === relatedPost.slug
+        );
+        if (relatedPostExisting) {
+          relatedPost.points = relatedPost.points++;
+        } else {
+          relatedPosts.push({ slug: relatedPost.slug, points: 1 });
+        }
+      });
+    }
+  });
+  console.log({ relatedPosts });
+  relatedPosts = _.sortBy(relatedPosts, "points").reverse();
+  if (relatedPosts.length > 3) {
+    relatedPosts.slice(0, 3);
+  }
+
   /**
    * Blog body content
    */
@@ -107,7 +144,45 @@ const PostDetail = ({ pageContext, data }) => {
           </div>
         </div>
       </article>
-      <div className="mx-auto lg:max-w-3xl mt-8">
+      {relatedPosts.length > 0 && (
+        <div className="px-4 mx-auto lg:max-w-4xl mt-8">
+          <div className="flex flex-wrap justify-between items-center border-b-2 border-gray-500 border-solid pb-4 mb-8 w-full">
+            <h1 className="font-sans text-xl font-extrabold lg:text-2xl xl:text-3xl">
+              Related Content
+            </h1>
+          </div>
+          <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-1">
+            {relatedPosts.map((relatedPost) => {
+              const relatedPostData = allPostsExceptCurrentPost.find(
+                (post) => post.slug === relatedPost.slug
+              );
+              if (!relatedPostData) {
+                return null;
+              }
+              return (
+                <Link
+                  to={`/${relatedPostData.slug}`}
+                  aria-label={relatedPostData.title}
+                >
+                  <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
+                    <img
+                      className="object-cover w-full h-56 md:h-64 xl:h-80"
+                      src={relatedPostData.image.file.url}
+                      alt={relatedPostData.title}
+                    />
+                    <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
+                      <p className="text-sm font-medium tracking-wide text-white">
+                        {relatedPostData.title}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      <div className="px-4 mx-auto lg:max-w-3xl mt-8">
         <Disqus
           config={{
             url: `https://www.axiedaily.com/${slug}`,
@@ -159,6 +234,13 @@ export const pageQuery = graphql`
           contentful_id
           slug
           title
+          tags
+          createdAt(formatString: "LL")
+          image {
+            file {
+              url
+            }
+          }
         }
       }
     }
