@@ -31,6 +31,17 @@ const Footer = () => {
               <p className="text-sm text-deep-purple-50">
                 This site is not affiliated with Axie Infinity or Sky Mavis.
               </p>
+              <p className="text-sm text-deep-purple-50 mt-3">
+                If you like what we do here, you can help support the site by
+                <a
+                  href="https://www.buymeacoffee.com/axiedaily"
+                  target="_blank"
+                  className="underline"
+                >
+                  {" "}
+                  buying me a coffee ☕
+                </a>
+              </p>
               {/* <p className="mt-4 text-sm text-deep-purple-50">
                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae dicta sunt explicabo.
