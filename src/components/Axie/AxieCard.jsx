@@ -1,4 +1,5 @@
 import React from "react";
+import ReactTooltip from "react-tooltip";
 import { AxiePart } from "./Parts";
 
 const AxieClass = ({ axieClass }) => {
@@ -56,16 +57,61 @@ export const AxieCard = ({ axie }) => {
   function getPartName(axie, type) {
     return axie.parts.find((part) => part.type === type).name;
   }
+  function getPartColor(type) {
+    console.log("brylle");
+    let textC = "";
+    switch (type) {
+      case "Bird":
+        textC = "text-pink-300";
+        break;
+      case "Beast":
+        textC = "text-orange-400";
+        break;
+      case "Aquatic":
+        textC = "text-light-blue-700";
+        break;
+      case "Plant":
+        textC = "text-green-500";
+        break;
+      case "Bug":
+        textC = "text-red-400";
+        break;
+      case "Reptile":
+        textC = "text-purple-300";
+        break;
+      default:
+        break;
+    }
+    return textC;
+  }
   return (
     <div className="rounded overflow-hidden shadow-lg px-2 py-2 bg-custom-primary">
       <AxieClass axieClass={axie.class} />
       <a
         href={`https://marketplace.axieinfinity.com/axie/${axie.id}`}
         target="_blank"
+        data-tip
+        data-for={axie.id}
       >
         <img className="w-full" src={axie.image} alt={axie.id} />
       </a>
-
+      <ReactTooltip id={axie.id} aria-haspopup="true" role="example">
+        <ul>
+          {["Eyes", "Ears", "Back", "Mouth", "Horn", "Tail"].map((part, i) => {
+            console.log("brylle", axie);
+            return (
+              <li
+                key={i}
+                className={getPartColor(
+                  axie.parts.find((axiePart) => axiePart.type === part).class
+                )}
+              >
+                <strong>{getPartName(axie, part)}</strong>
+              </li>
+            );
+          })}
+        </ul>
+      </ReactTooltip>
       <div className="py-2">
         <div className="font-bold text-sm text-text-main">
           <a href={`https://marketplace.axieinfinity.com/axie/${axie.id}`}>
