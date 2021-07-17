@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 import { graphql, Link } from "gatsby";
 import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
 const TagsLanding = ({ data }) => {
-  console.log("brylle", data);
 
   const { allContentfulArticles } = data;
   const postsListWithTags = allContentfulArticles.edges;

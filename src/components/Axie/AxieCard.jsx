@@ -58,7 +58,6 @@ export const AxieCard = ({ axie }) => {
     return axie.parts.find((part) => part.type === type).name;
   }
   function getPartColor(type) {
-    console.log("brylle");
     let textC = "";
     switch (type) {
       case "Bird":
@@ -98,7 +97,6 @@ export const AxieCard = ({ axie }) => {
       <ReactTooltip id={axie.id} aria-haspopup="true" role="example">
         <ul>
           {["Eyes", "Ears", "Back", "Mouth", "Horn", "Tail"].map((part, i) => {
-            console.log("brylle", axie);
             return (
               <li
                 key={i}
