@@ -38,7 +38,7 @@ const FloorAxies = () => {
     <Layout>
       <SearchOptimization
         title="Floor Axies Explorer | AxieDaily"
-        description="A tool to explore floor axies in the Marketplace without the hassle"
+        description="A tool to explore floor axies in the Marketplace fast. See average floor price, average price for a full axie team based on floor price axies."
         image={flooraxieimg}
       />
       {isLoading ? (
