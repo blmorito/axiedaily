@@ -71,12 +71,14 @@ const PostDetail = ({ pageContext, data }) => {
       ["hyperlink"]: (node, children) => {
         return (
           <a
-            className="text-deep-purple-accent-700 hover:underline"
+            className="text-deep-purple-accent-200 hover:underline"
             href={node.data.uri}
             target="_blank"
             rel="noreferrer noopener"
           >
-            {children.length > 0 && children[0] ? children[0] : node.data.uri}
+            <strong>
+              {children.length > 0 && children[0] ? children[0] : node.data.uri}
+            </strong>
           </a>
         );
       },
@@ -124,10 +126,10 @@ const PostDetail = ({ pageContext, data }) => {
                   </p>
                 </div>
               )}
-              <h2 className="max-w-lg mb-2 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+              <h2 className="max-w-lg mb-2 font-sans text-3xl font-bold leading-none tracking-tight text-text-main sm:text-4xl md:mx-auto">
                 {title}
               </h2>
-              <p className="text-base text-gray-700 md:text-sm">
+              <p className="text-base text-text-main md:text-sm">
                 {articleDate}
               </p>
             </div>
@@ -147,7 +149,7 @@ const PostDetail = ({ pageContext, data }) => {
       {relatedPosts.length > 0 && (
         <div className="px-4 mx-auto lg:max-w-4xl mt-8">
           <div className="flex flex-wrap justify-between items-center border-b-2 border-gray-500 border-solid pb-4 mb-8 w-full">
-            <h1 className="font-sans text-xl font-extrabold lg:text-2xl xl:text-3xl">
+            <h1 className="font-sans text-xl font-extrabold lg:text-2xl xl:text-3xl text-text-main">
               Related Content
             </h1>
           </div>

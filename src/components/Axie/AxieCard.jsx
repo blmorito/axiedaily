@@ -57,7 +57,7 @@ export const AxieCard = ({ axie }) => {
     return axie.parts.find((part) => part.type === type).name;
   }
   return (
-    <div className="rounded overflow-hidden shadow-lg px-2 py-2">
+    <div className="rounded overflow-hidden shadow-lg px-2 py-2 bg-custom-primary">
       <AxieClass axieClass={axie.class} />
       <a
         href={`https://marketplace.axieinfinity.com/axie/${axie.id}`}
@@ -66,13 +66,13 @@ export const AxieCard = ({ axie }) => {
         <img className="w-full" src={axie.image} alt={axie.id} />
       </a>
 
-      <div className="py-4">
-        <div className="font-bold text-sm">
+      <div className="py-2">
+        <div className="font-bold text-sm text-text-main">
           <a href={`https://marketplace.axieinfinity.com/axie/${axie.id}`}>
             Axie #{axie.id}
           </a>
         </div>
-        <p className="font-light mb-2 text-xs text-gray-700">
+        <p className="font-light mb-2 text-xs text-text-main">
           Breed Count: {axie.breedCount} / 7
         </p>
         <div className="grid grid-cols-6 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6">
@@ -89,9 +89,9 @@ export const AxieCard = ({ axie }) => {
         </div>
       </div>
       <div className="pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+        <span className="inline-block bg-custom-gray rounded-full px-3 py-1 text-sm font-bold text-text-main">
           {Number(axie.auction.currentPrice / 1000000000000000000).toFixed(4)}
-          <span className="ml-1 text-xs font-semibold text-gray-500">
+          <span className="ml-1 text-xs font-normal ">
             ${axie.auction.currentPriceUSD}
           </span>
         </span>

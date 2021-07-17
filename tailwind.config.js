@@ -1,13 +1,17 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        primary: "var(--primary)",
+        "custom-primary": "var(--custom-primary)",
+        "custom-gray": "var(--custom-gray)",
+        "text-main": "var(--text-main)",
         red: {
           50: "#ffebee",
           100: "#ffcdd2",
@@ -326,4 +330,4 @@ module.exports = {
     backgroundColor: ["responsive", "hover", "focus", "group-hover"],
   },
   plugins: [],
-}
+};

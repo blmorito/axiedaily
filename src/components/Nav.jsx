@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { Link } from "gatsby";
 import adLogo from "../images/axiedailylogo.png";
+import ThemeToggle from "./ThemeToggle";
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
@@ -10,15 +11,15 @@ const Nav = () => {
         <div className="flex items-center">
           <Link to="/" className="inline-flex items-center mr-8">
             <img className="w-10" src={adLogo} alt="Axie Daily Logo"></img>
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-              Axie<span className="text-deep-purple-accent-700">Daily</span>
+            <span className="ml-2 text-xl font-bold tracking-wide text-text-main uppercase">
+              Axie<span className="text-deep-purple-accent-400">Daily</span>
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <Link
                 to="/tag/news"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 News
               </Link>
@@ -26,7 +27,7 @@ const Nav = () => {
             <li>
               <Link
                 to="/tag/guide"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Guides
               </Link>
@@ -34,7 +35,7 @@ const Nav = () => {
             <li>
               <Link
                 to="/tag/tools"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Tools
               </Link>
@@ -42,7 +43,7 @@ const Nav = () => {
             <li>
               <Link
                 to="/flooraxies"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Floor Axies 🕵🏻
               </Link>
@@ -50,35 +51,16 @@ const Nav = () => {
             <li>
               <Link
                 to="/tag"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 All Tags
               </Link>
             </li>
           </ul>
         </div>
-        {/* <ul className="flex items-center hidden space-x-8 lg:flex">
-          <li>
-            <a
-              href="/"
-              aria-label="Sign in"
-              title="Sign in"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Sign in
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Sign up
-            </a>
-          </li>
-        </ul> */}
+        <div className="flex items-center hidden space-x-8 lg:flex">
+          <ThemeToggle />
+        </div>
         <div className="lg:hidden">
           <button
             aria-label="Open Menu"
@@ -102,8 +84,8 @@ const Nav = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
-              <div className="p-5 bg-white border rounded shadow-sm">
+            <div className="absolute top-0 left-0 w-full ">
+              <div className="p-5 bg-white border rounded shadow-sm bg-primary">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <Link to="/" className="inline-flex items-center mr-8">
@@ -112,7 +94,7 @@ const Nav = () => {
                         src={adLogo}
                         alt="Axie Daily Logo"
                       ></img>
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                      <span className="ml-2 text-xl font-bold tracking-wide text-text-main uppercase">
                         Axie
                         <span className="text-deep-purple-accent-700">
                           Daily
@@ -141,7 +123,7 @@ const Nav = () => {
                     <li>
                       <Link
                         to="/tag/news"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         News
                       </Link>
@@ -149,7 +131,7 @@ const Nav = () => {
                     <li>
                       <Link
                         to="/tag/guide"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Guides
                       </Link>
@@ -157,7 +139,7 @@ const Nav = () => {
                     <li>
                       <Link
                         to="/tag/tools"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Tools
                       </Link>
@@ -165,7 +147,7 @@ const Nav = () => {
                     <li>
                       <Link
                         to="/flooraxies"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Floor Axies
                       </Link>
@@ -173,7 +155,7 @@ const Nav = () => {
                     <li>
                       <Link
                         to="/tag"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium tracking-wide text-text-main transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         All Tags
                       </Link>

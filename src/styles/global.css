@@ -1,4 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body.dark {
+  --primary: #111827;
+  --custom-primary: #131b2b;
+  --custom-gray: #1f2b47;
+  --text-main: white;
+}
+
+body.light {
+  --primary: white;
+  --custom-primary: white;
+  --custom-gray: #eeeeee;
+  --text-main: #111827;
+}
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");

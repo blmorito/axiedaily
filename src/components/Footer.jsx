@@ -2,9 +2,9 @@ import React from "react";
 import adLogo from "../images/axiedailylogo.png";
 const Footer = () => {
   return (
-    <div className="relative mt-24 bg-deep-purple-accent-400">
+    <div className="relative mt-24 bg-deep-purple-900">
       <svg
-        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-accent-400"
+        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-900"
         preserveAspectRatio="none"
         viewBox="0 0 1440 54"
       >

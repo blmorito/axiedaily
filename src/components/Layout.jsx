@@ -5,12 +5,13 @@ import PropTypes from "prop-types";
 import SearchOptimization from "./SearchOptimization/SearchOptimization";
 const Layout = ({ children, customSEO }) => {
   return (
-    <div>
+    <div className="bg-primary">
       {!customSEO && <SearchOptimization />}
       <coingecko-coin-price-marquee-widget
         coin-ids="ethereum,smooth-love-potion,axie-infinity"
         currency="usd"
-        background-color="#ffffff"
+        background-color="#111827"
+        font-color="#ffffff"
         locale="en"
       ></coingecko-coin-price-marquee-widget>
       <Nav />

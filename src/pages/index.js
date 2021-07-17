@@ -74,12 +74,12 @@ const MainFeature = ({ title, description, imgSrc, tag, slug }) => {
           aria-label={title}
           className="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
         >
-          <p className="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-3xl xl:text-4xl">
+          <p className="font-sans text-text-main text-xl font-extrabold leading-none tracking-tight lg:text-3xl xl:text-4xl">
             {title}
           </p>
         </Link>
       </div>
-      <p className="mb-4 text-base text-gray-700 md:text-lg">{description}</p>
+      <p className="mb-4 text-base text-text-main md:text-lg">{description}</p>
     </React.Fragment>
   );
 };
@@ -103,7 +103,7 @@ const SubFeature = ({ title, imgSrc, tag, slug }) => {
           aria-label={title}
           className="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
         >
-          <p className="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-2xl">
+          <p className="font-sans text-text-main text-xl font-extrabold leading-none tracking-tight lg:text-2xl">
             {title}
           </p>
         </Link>
@@ -151,18 +151,18 @@ const LatestListItem = ({ date, title, description, imgSrc, slug }) => {
           <Link
             to={`/${slug}`}
             aria-label={title}
-            className="inline-block text-black
+            className="inline-block text-text-main
             transition-colors duration-200 hover:text-deep-purple-accent-700"
           >
             <p className="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
               {title}
             </p>
           </Link>
-          <p className="text-gray-600 text-xs mt-1">{date}</p>
+          <p className="text-text-main text-xs mt-1">{date}</p>
         </div>
       </div>
       <div className="lg:col-span-2">
-        <p className="text-gray-700">{description}</p>
+        <p className="text-text-main">{description}</p>
       </div>
     </div>
   );
@@ -172,7 +172,7 @@ const ListHeader = ({ label, linkLabel, link }) => {
   return (
     <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="flex flex-wrap justify-between items-center border-b-2 border-gray-500 border-solid pb-4 mb-8 w-full">
-        <h1 className="font-sans text-xl font-extrabold lg:text-3xl xl:text-4xl">
+        <h1 className="font-sans text-text-main text-xl font-extrabold lg:text-3xl xl:text-4xl">
           {label}
         </h1>
         <Link
@@ -211,7 +211,7 @@ const HomeListByTag = ({ items }) => {
 
 const HomeListByTagItem = ({ title, description, date, imgSrc, slug }) => {
   return (
-    <div className="overflow-hidden transition-shadow duration-300 bg-white rounded">
+    <div className="overflow-hidden transition-shadow duration-300 bg-primary rounded">
       <Link to={`/${slug}`} aria-label={title}>
         <img
           src={imgSrc.file.url}
@@ -220,18 +220,18 @@ const HomeListByTagItem = ({ title, description, date, imgSrc, slug }) => {
         />
       </Link>
       <div className="py-5">
-        <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
+        <p className="mb-2 text-xs font-semibold text-text-main uppercase">
           {date}
         </p>
         <Link
           to={`/${slug}`}
           aria-label={title}
-          className="inline-block mb-3 text-black transition-colors duration-200
+          className="inline-block mb-3 text-text-main transition-colors duration-200
           hover:text-deep-purple-accent-700"
         >
           <p className="text-2xl font-bold leading-none">{title}</p>
         </Link>
-        <p className="mb-4 text-gray-700">{description}</p>
+        <p className="mb-4 text-text-main">{description}</p>
       </div>
     </div>
   );
