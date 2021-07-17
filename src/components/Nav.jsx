@@ -160,6 +160,9 @@ const Nav = () => {
                         All Tags
                       </Link>
                     </li>
+                    <li>
+                      <ThemeToggle />
+                    </li>
                   </ul>
                 </nav>
               </div>
