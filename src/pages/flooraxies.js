@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchOptimization from "../components/SearchOptimization/SearchOptimization";
 import Layout from "../components/Layout";
 import { AxieCard } from "../components/Axie/AxieCard";
+import flooraxieimg from "../images/flooraxies.png";
 const FloorAxies = () => {
   const request = {
     operationName: "GetAxieBriefList",
@@ -38,6 +39,7 @@ const FloorAxies = () => {
       <SearchOptimization
         title="Floor Axies Explorer | AxieDaily"
         description="A tool to explore floor axies in the Marketplace without the hassle"
+        image={flooraxieimg}
       />
       {isLoading ? (
         <div className="min-h-screen">
