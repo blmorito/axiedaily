@@ -15,8 +15,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.21",
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-types": "^15.0.0",
+    "axios": "^0.21.1",
     "gatsby": "^3.9.0",
     "gatsby-image": "^3.9.0",
     "gatsby-plugin-disqus": "^1.2.2",

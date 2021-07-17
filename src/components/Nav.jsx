@@ -41,6 +41,14 @@ const Nav = () => {
             </li>
             <li>
               <Link
+                to="/flooraxies"
+                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              >
+                Floor Axies 🕵🏻
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/tag"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
@@ -152,6 +160,14 @@ const Nav = () => {
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Tools
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/flooraxies"
+                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      >
+                        Floor Axies
                       </Link>
                     </li>
                     <li>
