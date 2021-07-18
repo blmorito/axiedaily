@@ -133,7 +133,7 @@ export const AxieCard = ({ axie }) => {
         </div>
       </div>
       <div className="pt-4 pb-2">
-        {axie.action ? (
+        {axie.auction ? (
           <span className="inline-block bg-custom-gray rounded-full px-3 py-1 text-sm font-bold text-text-main">
             {Number(axie.auction.currentPrice / 1000000000000000000).toFixed(4)}
             <span className="ml-1 text-xs font-normal ">
